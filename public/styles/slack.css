@@ -1,13 +1,15 @@
 /* Elite Brothers Club — Slack-inspired design system */
 
 :root {
-  --sidebar-bg: #4A154B;
-  --sidebar-hover: rgba(255, 255, 255, 0.1);
-  --sidebar-active: #F9EDFF;
-  --sidebar-text: rgba(255, 255, 255, 0.8);
-  --sidebar-text-strong: #FFFFFF;
-  --sidebar-muted: rgba(255, 255, 255, 0.6);
-  --sidebar-line: rgba(255, 255, 255, 0.12);
+  --sidebar-bg: #E4E4E4;
+  /* Login-page backdrop image. Leave as `none` for a solid --sidebar-bg. */
+  --auth-bg-image: url('assets/background.jpeg');
+  --sidebar-hover: rgba(0, 0, 0, 0.06);
+  --sidebar-active: #FFFFFF;
+  --sidebar-text: #4A4A4A;
+  --sidebar-text-strong: #1D1C1D;
+  --sidebar-muted: #6E6E6E;
+  --sidebar-line: rgba(0, 0, 0, 0.12);
 
   --canvas: #FFFFFF;
   --bg-hover: #F8F8F8;
@@ -202,7 +204,7 @@ h1, h2, h3, p { margin: 0; }
   height: 64px;
   border-radius: 16px;
   background: var(--sidebar-bg);
-  color: #fff;
+  color: var(--ink);
   display: grid;
   place-items: center;
   font-weight: 900;
@@ -231,10 +233,14 @@ h1, h2, h3, p { margin: 0; }
   display: grid;
   place-items: center;
   padding: 24px;
-  background:
+  background-color: var(--sidebar-bg);
+  background-image:
     radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.09), transparent 45%),
     radial-gradient(circle at 85% 90%, rgba(255, 255, 255, 0.07), transparent 45%),
-    var(--sidebar-bg);
+    var(--auth-bg-image);
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .auth-card {
@@ -295,7 +301,7 @@ h1, h2, h3, p { margin: 0; }
   height: 100%;
   z-index: 100;
 }
-.sidebar * { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.3) transparent; }
+.sidebar * { scrollbar-width: thin; scrollbar-color: rgba(0, 0, 0, 0.3) transparent; }
 
 .workspace {
   display: flex;
@@ -377,8 +383,8 @@ h1, h2, h3, p { margin: 0; }
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--ink);
   display: grid;
   place-items: center;
   font-size: 14px;
@@ -409,7 +415,7 @@ h1, h2, h3, p { margin: 0; }
   place-items: center;
   transition: background 150ms ease, color 150ms ease;
 }
-.side-icon-btn:hover { background: var(--sidebar-hover); color: #fff; }
+.side-icon-btn:hover { background: var(--sidebar-hover); color: var(--sidebar-text-strong); }
 .side-icon-btn svg { width: 18px; height: 18px; }
 
 .sidebar-backdrop {

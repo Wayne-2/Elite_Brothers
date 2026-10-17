@@ -2,10 +2,13 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { neon } from '@neondatabase/serverless';
+import { getDatabaseUrl } from '../lib/db.js';
 
-const DATABASE_URL = process.env.DATABASE_URL;
-if (!DATABASE_URL) {
-  console.error('DATABASE_URL is not set. Run `npx vercel env pull` or export it first.');
+let DATABASE_URL;
+try {
+  DATABASE_URL = getDatabaseUrl();
+} catch {
+  console.error('No database connection string found. Run `npx vercel env pull` or set DATABASE_URL.');
   process.exit(1);
 }
 
