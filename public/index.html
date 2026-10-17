@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in — Elite Brothers Club</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/slack.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <div class="auth-head">
+      <div class="brand-logo">
+        <img src="assets/logo.jpg" alt="Elite Brothers Club logo" onerror="this.style.display='none'">
+      </div>
+      <h1 class="auth-title">Elite Brothers Club</h1>
+      <p class="auth-sub" id="auth-sub">Sign in with your invite code to vote</p>
+    </div>
+
+    <form id="invite-form" autocomplete="off">
+      <div class="form-error" id="invite-error"></div>
+      <div class="field">
+        <label class="label" for="invite-code">Invite code</label>
+        <input class="input input-code" id="invite-code" name="inviteCode"
+               placeholder="ABCD-EFGH" maxlength="9" autocomplete="off" autocapitalize="characters"
+               spellcheck="false" required>
+        <p class="help">Ask your organizer for your 8-character code.</p>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit" id="invite-submit">Continue</button>
+    </form>
+
+    <form id="admin-form" class="hidden" autocomplete="off">
+      <div class="form-error" id="admin-error"></div>
+      <div class="field">
+        <label class="label" for="admin-password">Organizer password</label>
+        <input class="input" id="admin-password" name="password" type="password"
+               placeholder="Enter password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit" id="admin-submit">Sign in</button>
+    </form>
+
+    <p class="auth-switch" id="switch-to-admin">
+      Signing in as an organizer? <button type="button" id="admin-toggle">Use organizer password</button>
+    </p>
+    <p class="auth-switch hidden" id="switch-to-invite">
+      Have an invite code? <button type="button" id="invite-toggle">Use invite code</button>
+    </p>
+
+    <p class="auth-foot">Invite codes are issued by your chapter organizers.</p>
+  </main>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>

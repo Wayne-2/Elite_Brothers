@@ -1,0 +1,17 @@
+{
+  "name": "elite-brothers-club",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs",
+    "dev": "npx vercel dev",
+    "test": "node --experimental-test-module-mocks test/api.test.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10"
+  }
+}
